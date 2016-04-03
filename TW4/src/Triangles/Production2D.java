@@ -126,7 +126,7 @@ class P152D extends Production2D
 
     public P152D(Triangle a, Triangle b, Counter Count)
     {
-        super(a, b, null, Count);
+        super(null, b, a, Count);
     }
 
     @Override
@@ -135,10 +135,11 @@ class P152D extends Production2D
         System.out.println("P15 - 2D");
         UpPointingTriangle E1 = new UpPointingTriangle();
         E1.setLabel("E1");
-        ((DownPointingTriangle)a).setBottomLeft(E1);
+        ((DownPointingTriangle)c).setBottomLeft(E1);
         ((DownPointingTriangle)b).setBottomRight(E1);
-        E1.setUpperRight(a);
+        E1.setUpperRight(c);
         E1.setUpperLeft(b);
+        this.triangleA=E1;
         return E1;
     }
     

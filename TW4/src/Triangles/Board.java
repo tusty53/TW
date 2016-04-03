@@ -2,7 +2,8 @@ package Triangles;
 
 
 import static Triangles.Aplikacja.CELL_SIZE;
-import static Triangles.Aplikacja.DIMENTION;
+import static Triangles.Aplikacja.DIMENTION_X;
+import static Triangles.Aplikacja.DIMENTION_Y;
 import static Triangles.Aplikacja.list;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -27,7 +28,7 @@ class Board extends JPanel
 
     public Board()
     {      
-        this.setPreferredSize(new Dimension(CELL_SIZE*DIMENTION,CELL_SIZE*DIMENTION));
+        this.setPreferredSize(new Dimension(CELL_SIZE*DIMENTION_X,CELL_SIZE*DIMENTION_Y));
     }
     
     @Override
@@ -35,9 +36,9 @@ class Board extends JPanel
         Graphics2D g2=(Graphics2D)g;
         super.paintComponent(g);
         int i,j,x,y;
-        for(i=0;i<DIMENTION;i++)
+        for(i=0;i<DIMENTION_X;i++)
         {
-            for(j=0;j<DIMENTION;j++)
+            for(j=0;j<DIMENTION_Y;j++)
             {
                 x=i*CELL_SIZE;
                 y=j*CELL_SIZE;
