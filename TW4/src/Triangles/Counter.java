@@ -22,7 +22,7 @@ class Counter {
 		System.out.println("Counter:"+m_counter);
 		if(m_counter==0) {
    		    System.out.println("Counter:notify()");
-			notify();
+			notifyAll();
 		}	
 	}
 	synchronized void release() {

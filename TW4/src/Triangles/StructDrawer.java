@@ -23,11 +23,8 @@ class StructDrawer
         Depth d=new Depth();
         temp.clear();
         walkThroughStruct(triangleA,0,0,max,d);
-        System.out.println("AFTER");
-        System.out.println("Up: "+max.up+" Down: "+max.down+" Right: "+max.right+" Left: "+max.left);
         clear(triangleA);
         temp.forEach((node)->node.normalise(max.left,max.up));
-        temp.forEach((node)->System.out.println("X: "+node.x+"Y: "+node.y));
         synchronized(list)
         {
             list.clear();
@@ -42,9 +39,7 @@ class StructDrawer
             triangle.visited=true;
             System.out.println(triangle.label);
             max.check(x,y);
-            
-            System.out.println("X: "+x+" Y: "+y);
-            System.out.println("Up: "+max.up+" Down: "+max.down+" Right: "+max.right+" Left: "+max.left);
+
             if(triangle instanceof UpPointingTriangle)
             {
                 temp.add(new Node(x,y,true));
@@ -54,11 +49,11 @@ class StructDrawer
                 }
                 if((((UpPointingTriangle)triangle).upperLeft!=null)&&(!((UpPointingTriangle)triangle).upperLeft.visited))
                 {
-                    walkThroughStruct(((UpPointingTriangle)triangle).upperLeft,x-1,y+1,max,depth);
+                    walkThroughStruct(((UpPointingTriangle)triangle).upperLeft,x-1,y,max,depth);
                 }
                 if((((UpPointingTriangle)triangle).upperRight!=null)&&(!((UpPointingTriangle)triangle).upperRight.visited))
                 {
-                    walkThroughStruct(((UpPointingTriangle)triangle).upperRight,x+1,y+1,max,depth);
+                    walkThroughStruct(((UpPointingTriangle)triangle).upperRight,x+1,y,max,depth);
                 }
             }
             if(triangle instanceof DownPointingTriangle)
@@ -70,11 +65,11 @@ class StructDrawer
                 }
                 if((((DownPointingTriangle)triangle).bottomLeft!=null)&&(!((DownPointingTriangle)triangle).bottomLeft.visited))
                 {
-                    walkThroughStruct(((DownPointingTriangle)triangle).bottomLeft,x-1,y-1,max,depth);
+                    walkThroughStruct(((DownPointingTriangle)triangle).bottomLeft,x-1,y,max,depth);
                 }
                 if((((DownPointingTriangle)triangle).bottomRight!=null)&&(!((DownPointingTriangle)triangle).bottomRight.visited))
                 {
-                    walkThroughStruct(((DownPointingTriangle)triangle).bottomRight,x-1,y-1,max,depth);
+                    walkThroughStruct(((DownPointingTriangle)triangle).bottomRight,x+1,y,max,depth);
                 }
             }
         }

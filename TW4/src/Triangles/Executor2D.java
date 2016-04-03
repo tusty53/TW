@@ -31,7 +31,7 @@ public class Executor2D extends Thread
         p5a.start();
         
         counter.release();
-        drawer.draw(p5a.triangleA);
+        drawer.draw(p1.triangleA);
         
         P112D p11a = new P112D(p5a.triangleA,counter);
         P122D p12a = new P122D(p5a.triangleA,counter);
@@ -39,7 +39,7 @@ public class Executor2D extends Thread
         p12a.start();
         
         counter.release();
-        drawer.draw(p11a.triangleA);
+        drawer.draw(p1.triangleA);
         
         P52D p5b = new P52D(p11a.triangleA,counter);
         P52D p5c = new P52D(p12a.triangleA,counter);
@@ -47,7 +47,7 @@ public class Executor2D extends Thread
         p5c.start();
         
         counter.release();
-        drawer.draw(p5b.triangleA);
+        drawer.draw(p1.triangleA);
         
         P112D p11b = new P112D(p5b.triangleA,counter);
         P122D p12b = new P122D(p5c.triangleA,counter);
@@ -57,7 +57,7 @@ public class Executor2D extends Thread
         p15a.start();
         
         counter.release();
-        drawer.draw(p15a.triangleA);
+        drawer.draw(p1.triangleA);
         
         System.out.println("done");
     }

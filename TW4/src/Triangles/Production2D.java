@@ -135,10 +135,10 @@ class P152D extends Production2D
         System.out.println("P15 - 2D");
         UpPointingTriangle E1 = new UpPointingTriangle();
         E1.setLabel("E1");
-        ((DownPointingTriangle)b).setBottomLeft(E1);
-        ((DownPointingTriangle)a).setBottomRight(E1);
-        E1.setUpperRight(b);
-        E1.setUpperLeft(a);
+        ((DownPointingTriangle)a).setBottomLeft(E1);
+        ((DownPointingTriangle)b).setBottomRight(E1);
+        E1.setUpperRight(a);
+        E1.setUpperLeft(b);
         return E1;
     }
     

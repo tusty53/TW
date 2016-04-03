@@ -3,6 +3,7 @@ package Triangles;
 
 import java.awt.EventQueue;
 import java.awt.Point;
+import static java.lang.Thread.sleep;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,26 +33,29 @@ class Aplikacja extends JFrame{
         setTitle("Application");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setSize(CELL_SIZE*DIMENTION,CELL_SIZE*DIMENTION);
-        this.pack();
+        setSize(300,300);
     }
     public void refresh()
     {
         this.removeAll();
         this.add(new Board());
     }
-    public static void main(String args[]){
+    public static void main(String args[]) throws InterruptedException{
 
         Executor2D e = new Executor2D();
         e.start();
-        /*EventQueue.invokeLater(new Runnable() {
-        @Override
-        public void run() {
-            Aplikacja ex = new Aplikacja();
-            ex.setVisible(true);
-        }
-        });*/
+
         Aplikacja ex=new Aplikacja();
         ex.setVisible(true);
+        while(e.isAlive())
+        {
+            ex.revalidate();
+            ex.repaint();
+            sleep(10);
+        }
+        ex.revalidate();
+        ex.repaint();
+        
+        
     }
 }
