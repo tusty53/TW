@@ -1,3 +1,5 @@
+package Triangles;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -32,7 +34,6 @@ public abstract class Production2D extends Thread
     {
         this.cntr.inc();
         triangleA=apply(triangleA,triangleB,triangleC);
-        drawer.draw(triangleA);
         this.cntr.dec();
     }
     
@@ -135,7 +136,7 @@ class P152D extends Production2D
         UpPointingTriangle E1 = new UpPointingTriangle();
         E1.setLabel("E1");
         ((DownPointingTriangle)b).setBottomLeft(E1);
-        ((DownPointingTriangle)a).setBottomLeft(E1);
+        ((DownPointingTriangle)a).setBottomRight(E1);
         E1.setUpperRight(b);
         E1.setUpperLeft(a);
         return E1;

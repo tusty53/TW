@@ -1,3 +1,5 @@
+package Triangles;
+
 
 
 abstract class Production extends Thread {

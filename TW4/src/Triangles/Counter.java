@@ -1,3 +1,7 @@
+package Triangles;
+
+import static java.lang.Thread.sleep;
+
 
 
 
@@ -26,6 +30,7 @@ class Counter {
 		  System.out.println("Counter:wait");
   		  wait();
 		  System.out.println("Counter:release");
+                  sleep(1000);
 		}
 		catch(InterruptedException e){
 			System.out.println("Counter:InterruptedException caught");

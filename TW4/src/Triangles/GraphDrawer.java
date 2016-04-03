@@ -1,5 +1,4 @@
-
-
+package Triangles;
 
 class GraphDrawer {
 	GraphDrawer() {	
